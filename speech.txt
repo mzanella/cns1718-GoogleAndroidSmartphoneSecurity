@@ -1,0 +1,148 @@
+SLIDE 0
+Welcome everybody, I'm Marco Zanella and I will present you the research "On
+lightweight Mobile phone application certification".
+
+================================================================================
+
+SLIDE 1
+Before to present this study I remind you some part of the android framework to
+better understand this topic. When you develop an android application you
+basically write a Java application using some components provided by the
+framework and some XML such as the manifest to declare the permission of the
+app or some other XML file to declare the views.
+--------------------------------------------------------------------------------
+The components could be Activities that rappresent a controller for a view of
+the app and only one activity could be visible in each moment
+--------------------------------------------------------------------------------
+Services instead are long running tasks in background that could be used for
+example for downloads and so on
+--------------------------------------------------------------------------------
+Content Providers that are interfaces for access to a SQLite database and for
+sharing data with other applications
+--------------------------------------------------------------------------------
+Broadcast receivers that allows an application to react to some events.
+--------------------------------------------------------------------------------
+All these components communicate using Intents that are message that permits to
+applications to talk each others and to talk with the operating system
+--------------------------------------------------------------------------------
+Permission labels are strings that declares the resources that an application
+need to access to. This is an example of permission that could allow an
+application to access to the internet connection
+
+================================================================================
+
+SLIDE 2
+These permissions could be classified by their dangerousness. There are 4
+levels: 
+1) the first one is the normal one so when an app request this permission is
+automatically granted by the operating system
+2) the second one is the dangerous level and the permission to access a
+resource is given only with user confirmation
+3)after there is the signature level and these kind of permission are granted
+only if the application is signed with a developer key
+4) the last level instead exists only for retro compatibility with old Android
+version
+
+================================================================================
+
+SLIDE 3
+This permission label systems is involved in the security of android
+applications, in fact the the user could know if an application uses some
+potentially malicious features and this is important because smartphones has
+lots of personal user data. Other vendors such as Apple usually inspect the
+source code of an app before it could be released but it is expansive and even
+this is not 100% secure
+
+================================================================================
+
+SLIDE 4
+A solution to improve that permission label system is the result of this
+research that is kirin. Kirin is the system that provide the lightweight
+certification at install time. It practically checks if an application follows
+a set of rules, defined in a particular language, and gives back a result
+
+================================================================================
+
+SLIDE 5
+In this scheme we could see better how Kirin works. When you install a new
+application the normal android installer start the installation and the kirin
+security service starts to work. It retrieves the rules that the application
+must follow and gives back a response to the installer. Optionally there could
+be a part that gives the user a feedback to the user indicating the rating risk
+to the user, based on the rules that are not satisfied and saying if an
+application could be a malware or not
+
+================================================================================
+
+SLIDE 6
+All this system is based on the rules, and in order to define it researchers did
+reverse engineering, following a specific process. The first step was identify
+assets that could be for example permmission labels or application or storage
+card... In the second step the researchers identify functional requirements and
+from these the possible abuse cases by a malicious app. After that they identify
+the security requirements for each assets that describe how an asset must be
+protect to ensure security.
+
+================================================================================
+
+SLIDE 7
+The result of this process are these example of rules. There are 2 types:
+single permission, that involves only one permission, and multiple permission.
+I explain only some of them. The first rule define that and app must not have
+the SET_DEBUG_APP because this permission give to this application the power to
+debug every other apps. The rule 2 identify a probably eavesdropper app.
+The rule 4 and 5 a position tracker. The finding of these rules shown other
+vulnerabilities in the security in Android that thank to this research they
+were fixed.
+
+================================================================================
+
+SLIDE 8
+The researchers tested these kirin with the previous rules on 311 app and the
+result was that 3 apps failed rule 2, 1 rule 4 and 8 failed rules 4 and 5.
+
+================================================================================
+
+SLIDE 9
+These are the application that failed rule 2 but none of them have
+eavesdropper like behavior so researchers changed rule 2
+
+================================================================================
+
+SLIDE 10
+They splitted it in 2 new rules: rule 2.1 appends a restriction on receiving
+the PHONE_STATE and the rule 2.2 appends RECEIVE_BOOT_COMPLETE permission. 
+
+================================================================================
+
+SLIDE 11
+These are the application that failed rule 4 and/or 5, that are against
+position tracker. The purpose of the first 5 apps is to track user position but
+probably other apps has more permission than needed
+
+================================================================================
+
+SLIDE 12
+Kirin show that correctly indicate possible malware but it is still limited.
+First of all Kirin is limited by the Android permission labels and it can check
+only static permission on manifest file while in Android an app can define
+dynamically a Broadcast Receiver. The check is limited only in installation
+time not run-time. Finally defining a set of rule it's an hard task.
+--------------------------------------------------------------------------------
+But as the authors said kirin is not a complete solution but it must be
+integrated in a wider security system for Android.
+
+================================================================================
+
+SLIDE 13
+There are other solution to improve app security. One is SAINT whose goal is to
+improve the security of the interaction among different application. With saint
+there are some policies that are specified and that are enforced both at
+install time and run time
+
+================================================================================
+
+SLIDE 14
+Another solution is Crêpe. With Crêpe the policy that an application must
+follow work dynamically and change with the context of mobile phone. So it
+permits run-time change of permissions event with a low overhead. 
