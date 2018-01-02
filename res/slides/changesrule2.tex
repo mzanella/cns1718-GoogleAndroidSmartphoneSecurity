@@ -1,0 +1,30 @@
+\begin{frame}{Rule 2 failure and changes}
+
+\vspace*{-0.5cm}
+
+\fontsize{13pt}{0}\selectfont
+
+(2) \textit{An application must not have} \texttt{PHONE\_STATE},
+\texttt{RECORD\_AUDIO}\textit{, and }\texttt{INTERNET} \textit{permission
+labels.}\\
+
+\vspace*{0.5cm}
+
+Splitted into 2 sub-rules:\\
+\hspace*{0.1cm}(2.1) add a \textbf{restriction} on receiving the 
+\texttt{PHONE\_STATE} \hspace*{1.1cm}permission label\\
+\hspace*{0.1cm}(2.2) add \texttt{RECEIVE\_BOOT\_COMPLETE} permission label
+
+\vspace*{0.8cm}
+
+With this change
+\begin{itemize}
+  \item 1 app failed \textbf{rule 2.1} and \textbf{rule 2.2} 
+  (Walkie Talkie)
+
+  \item 1 app failed \textbf{rule 4}
+
+  \item 8 apps failed \textbf{rule 4 and 5}
+\end{itemize}
+
+\end{frame}
