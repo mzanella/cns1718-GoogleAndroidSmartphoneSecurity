@@ -1,4 +1,5 @@
 *.pdf
+*.fuse_hidden*
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
