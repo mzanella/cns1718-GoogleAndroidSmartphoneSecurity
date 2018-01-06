@@ -32,16 +32,8 @@ application to access to the internet connection
 ================================================================================
 
 SLIDE 2
-These permissions could be classified by their dangerousness. There are 4
-levels: 
-1) the first one is the normal one so when an app request this permission is
-automatically granted by the operating system
-2) the second one is the dangerous level and the permission to access a
-resource is given only with user confirmation
-3)after there is the signature level and these kind of permission are granted
-only if the application is signed with a developer key
-4) the last level instead exists only for retro compatibility with old Android
-version
+These permissions are classified by their dangerousness. There are 4
+levels, some of them are automatically granted, others require either user confirmation or the signature with a developer key
 
 ================================================================================
 
