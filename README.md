@@ -4,6 +4,8 @@ This repository contains the slides and the speech draft for the presentation ab
 
 The lecture was held in the first semester of the Academic Year 2017/2018 as part of the "Internet Technologies" area of the [Master Degree] (http://informatica.math.unipd.it/laureamagistrale/index.html) in Computer Science.
 
+The presentation is available [at this link](https://github.com/mzanella/cns1718-GoogleAndroidSmartphoneSecurity/releases/download/v0.1/GoogleAndroidSmartphoneSecurity.pdf).
+
 ___
 
 # Clone and compile
@@ -12,7 +14,7 @@ ___
 
 This repository works with submodules. In order to clone it correctly you havo to use the command:
 ```sh
-git clone git@github.com:mzanella/Google-Android-Smartphone-Security-presentation.git --recursive
+git clone https://github.com/mzanella/cns1718-GoogleAndroidSmartphoneSecurity.git --recursive
 ```
 
 ## Compilation
